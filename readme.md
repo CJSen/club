@@ -21,19 +21,21 @@
    - CPU 和内存根据自身需求调整，按照图上来的话，每天的费用大概在 $0.05/day。每月五美元完全够用。
    - 端口开放 5000（dufs）和 8888（webssh），并打开 "Enable Internet Access" 按钮。
    - 挂载 /root 目录，大小自己调整。
-   - 点击右上角 "deploy application"，等待容器启动。
+   - 点击右上角 "deploy application"，等待容器启动(可能会超时，镜像比较大，没关系，直接返回在点进来就好了)
    ![alt text](./static/photos/deploy.png)
 
 2. **访问服务**：
+   ![alt text](./static/photos/network.png)
    访问面板，点击对应的 public address，即可访问服务。
    - webssh：
       - hostname: localhost
       - username:club
       - password:123456
+      ![alt text](./static/photos/webssh.png)
    - dufs：
       - username:club
       - password:123456
-   ![alt text](./static/photos/image.png)
+      ![alt text](./static/photos/dufs.png)
 
 ## 安全提醒（务必阅读）
 
