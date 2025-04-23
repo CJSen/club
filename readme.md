@@ -50,6 +50,8 @@
 2. **修改 dufs 的访问密码**
    dufs 默认密码为弱密码，请及时在 `supervisord.conf` 或相关配置中更改为强密码，并重启服务。
    ```bash
+   sudo vim /root/supervisord/supervisord.conf
+   找到club:123456@xxxxx行，把"club:123456"改成你要的密码即可
    sudo supervisorctl restart dufs
    ```
 
