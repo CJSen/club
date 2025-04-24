@@ -17,7 +17,7 @@ RUN useradd -m -s /bin/bash club \
     && usermod -aG sudo club
 
 # 将当前目录的所有文件复制到容器的 /club 目录下
-COPY ./club/bin /bin
+COPY ./club/bin /club/bin
 COPY ./club/configs /club/configs
 COPY ./club/entrypoint.sh /club/entrypoint.sh
 
@@ -25,7 +25,7 @@ COPY ./club/entrypoint.sh /club/entrypoint.sh
 WORKDIR /root
 
 # 设置执行权限
-RUN chmod +x /club/entrypoint.sh
+RUN chmod +x /club/entrypoint.sh && cp /club/bin/u* /bin
 
 # 设置入口点
 ENTRYPOINT ["/club/entrypoint.sh"]

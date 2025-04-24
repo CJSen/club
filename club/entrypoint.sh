@@ -25,7 +25,6 @@ if [ ! -f "/root/init/.initialized" ]; then
     done
 
     # 复制必要的二进制文件和配置
-    cp -r /club/bin/u* /bin
     cp /club/configs/.bashrc /root/.bashrc
     cp -r /club/bin/dufs /root/dufs
     cp -r /club/bin/webssh /root/webssh
