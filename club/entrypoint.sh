@@ -51,5 +51,14 @@ if [ ! -f "/etc/ssh/ssh_host_rsa_key" ]; then
     ssh-keygen -A
 fi
 
+# 每次启动都设置club用户密码
+CLUB_PWD_FILE="/root/init/.club"
+if [ -f "$CLUB_PWD_FILE" ]; then
+    CLUB_PWD=$(cat "$CLUB_PWD_FILE")
+else
+    CLUB_PWD="123456"
+fi
+echo "club:$CLUB_PWD" | chpasswd
+
 # 执行传入的命令，通常是启动 supervisord
 exec "$@"

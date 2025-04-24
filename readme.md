@@ -20,7 +20,7 @@
    ```
    - CPU 和内存根据自身需求调整，按照图上来的话，每天的费用大概在 $0.05/day。每月五美元完全够用。
    - 端口开放 5000（dufs）和 8888（webssh），并打开 "Enable Internet Access" 按钮。
-   - 挂载 /root 目录，大小自己调整。
+   - 挂载 /root 目录(必须)，大小自己调整。
    - 点击右上角 "deploy application"，等待容器启动(可能会超时，镜像比较大，没关系，直接返回在点进来就好了)
    ![alt text](./static/photos/deploy.png)
 
@@ -44,16 +44,17 @@
 1. **修改系统用户 club 的密码**
    进入容器后执行：
    ```bash
-   passwd club
+   echo "your-new-password" | sudo tee /root/init/.club > /dev/null && echo "club:$(cat /root/init/.club)" | sudo chpasswd
    ```
 
 2. **修改 dufs 的访问密码**
-   dufs 默认密码为弱密码，请及时在 `supervisord.conf` 或相关配置中更改为强密码，并重启服务。
+   dufs 默认密码为弱密码，请及时在 `/root/supervisord/supervisord.conf` 配置中更改为强密码，并重启服务。
    ```bash
-   sudo vim /root/supervisord/supervisord.conf
-   找到club:123456@xxxxx行，把"club:123456"改成你要的密码即可
-   sudo supervisorctl restart dufs
+   sudo sed -i 's/club:[^@]*@/club:your-new-password@/' /root/supervisord/supervisord.conf && sudo supervisorctl restart dufs
    ```
+
+3. **重启你的应用**
+   ![alt text](./static/photos/restart.png)
 
 ## 目录结构
 
