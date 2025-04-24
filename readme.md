@@ -16,7 +16,7 @@
 1. **clawcloud镜像运行**：
    - 创建 app，名称随意，镜像按照图上步骤进行创建。
    ``` bash
-   ghcr.io/cjsen/club:main
+   ghcr.io/cjsen/club:latest
    ```
    - CPU 和内存根据自身需求调整，按照图上来的话，每天的费用大概在 $0.05/day。每月五美元完全够用。
    - 端口开放 5000（dufs）和 8888（webssh），并打开 "Enable Internet Access" 按钮。
