@@ -44,7 +44,7 @@
 1. **修改系统用户 club 的密码**
    进入容器后执行：
    ```bash
-   echo "your-new-password" | sudo tee /root/init/.club > /dev/null && echo "club:$(cat /root/init/.club)" | sudo chpasswd
+   password="your-new-password" && echo "$password" | sudo tee /root/init/.club > /dev/null && echo "club:$password" | sudo chpasswd
    ```
 
 2. **修改 dufs 的访问密码**
