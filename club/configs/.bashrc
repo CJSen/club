@@ -101,4 +101,3 @@ fi
 . "$HOME/.local/bin/env"
 eval "$(uv generate-shell-completion bash)"
 eval "$(uvx --generate-shell-completion bash)"
-source $HOME/.local/bin/env
