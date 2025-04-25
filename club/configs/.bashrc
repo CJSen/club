@@ -98,6 +98,5 @@ fi
 #    . /etc/bash_completion
 #fi
 
-. "$HOME/.local/bin/env"
 eval "$(uv generate-shell-completion bash)"
 eval "$(uvx --generate-shell-completion bash)"

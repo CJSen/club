@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # 更新系统并安装必要的软件包
 RUN apt-get update
 RUN apt-get install -y --no-install-recommends \
-    vim supervisor sudo openssh-server iputils-ping net-tools \
+    vim supervisor sudo openssh-server iputils-ping net-tools curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
